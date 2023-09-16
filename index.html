@@ -12,29 +12,41 @@
 
   <!-- Search Bar Section -->
   <section class="search-section">
-    <h2>Search  Songs</h2>
+    <h2>Search Songs</h2>
     <form id="song-search-form">
       <input type="text" id="song-search-input" placeholder="Enter song title, artist, or genre">
       <button type="submit" id="song-search-button">Search</button>
     </form>
-    </section>
+  </section>
+
+  <!-- Upload Songs Section -->
   <section>
-  <h2>Upload Songs</h2>
-  <form action="netdot.php" method="post" enctype="multipart/form-data">
-    <label for="song-file">Select a song:</label>
-    <input type="file" name="song-file" id="song-file" accept=".mp3, .wav">
-    <br>
-    <label for="song-title">Song Title:</label>
-    <input type="text" name="song-title" id="song-title" required>
-    <br>
-    <label for="song-artist">Artist:</label>
-    <input type="text" name="song-artist" id="song-artist" required>
-    <br>
-    <label for="song-genre">Genre:</label>
-    <input type="text" name="song-genre" id="song-genre">
-    <br>
-    <button type="submit" name="upload-song">Upload</button>
-  </form>
-</section
+    <h2>Upload Songs</h2>
+    <form action="upload.php" method="post" enctype="multipart/form-data">
+      <label for="song-file">Select a song:</label>
+      <input type="file" name="song-file" id="song-file" accept=".mp3, .wav">
+      <br>
+      <label for="song-title">Song Title:</label>
+      <input type="text" name="song-title" id="song-title" required>
+      <br>
+      <label for="song-artist">Artist:</label>
+      <input type="text" name="song-artist" id="song-artist" required>
+      <br>
+      <label for="song-genre">Genre:</label>
+      <input type="text" name="song-genre" id="song-genre">
+      <br>
+      <button type="submit" name="upload-song">Upload</button>
+    </form>
+  </section>
+
+  <!-- Display Link to Download Uploaded Song -->
+  <section class="download-section">
+    <?php
+    if (isset($_GET["download"])) {
+      $downloadFile = $_GET["download"];
+      echo '<a href="' . $downloadFile . '" download>Download Song</a>';
+    }
+    ?>
+  </section>
 </body>
-</html>
+  </html>
