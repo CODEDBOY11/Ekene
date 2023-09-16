@@ -39,12 +39,17 @@
     </form>
   </section>
 
-  <!-- Display Link to Download Uploaded Song -->
+  <!-- Display Uploaded File and Download Link -->
   <section class="download-section">
     <?php
     if (isset($_GET["download"])) {
       $downloadFile = $_GET["download"];
       echo '<a href="' . $downloadFile . '" download>Download Song</a>';
+    }
+
+    if (isset($_GET["uploaded_file"])) {
+      $uploadedFile = $_GET["uploaded_file"];
+      echo '<p>Uploaded File: ' . $uploadedFile . '</p>';
     }
     ?>
   </section>
