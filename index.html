@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
   <title>Download Musics Here</title>
   <link rel="stylesheet" href="music.css"> <!-- Link your external CSS file -->
 </head>
 <body>
-  <h1 class="page-title">
-    Download and Listen to Music Here
-  </h1>
+  <h1 class="page-title">Download and Listen to Music Here</h1>
 
   <!-- Search Bar Section -->
   <section class="search-section">
@@ -49,9 +47,9 @@
 
     if (isset($_GET["uploaded_file"])) {
       $uploadedFile = $_GET["uploaded_file"];
-      echo '<p>Uploaded File: ' . $uploadedFile . '</p>';
+      echo '<p>Uploaded File: ' . basename($uploadedFile) . '</p>';
     }
     ?>
   </section>
 </body>
-  </html>
+      </html>
