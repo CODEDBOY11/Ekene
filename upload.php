@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload-song"])) {
             // Perform database insertion here (e.g., using PDO or MySQLi)
             
             echo "Song uploaded successfully!";
+            
+            // Display a link to download the uploaded song
+            echo '<a href="' . $targetFile . '" download>Download ' . $songTitle . '</a>';
         } else {
             echo "Error uploading the file.";
         }
@@ -25,4 +28,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload-song"])) {
         echo "Invalid file format. Please upload an mp3 or wav file.";
     }
 }
-?>
+?
