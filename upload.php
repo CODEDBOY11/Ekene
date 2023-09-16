@@ -10,17 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload-song"])) {
     if (in_array($fileExtension, $allowedExtensions)) {
         // Move the uploaded file to the server
         if (move_uploaded_file($_FILES["song-file"]["tmp_name"], $targetFile)) {
-            // Store song information in a database (you need a database connection)
-            $songTitle = $_POST["song-title"];
-            $songArtist = $_POST["song-artist"];
-            $songGenre = $_POST["song-genre"];
-            
-            // Perform database insertion here (e.g., using PDO or MySQLi)
-            
-            echo "Song uploaded successfully!";
-            
             // Display a link to download the uploaded song
-            echo '<a href="' . $targetFile . '" download>Download ' . $songTitle . '</a>';
+            echo '<a href="' . $targetFile . '" download>Download Song</a>';
+            
+            // Display the uploaded file on the website
+            header("Location: index.html?uploaded_file=" . $targetFile);
         } else {
             echo "Error uploading the file.";
         }
@@ -28,4 +22,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["upload-song"])) {
         echo "Invalid file format. Please upload an mp3 or wav file.";
     }
 }
-?
+?>
